@@ -1,4 +1,6 @@
+import 'package:final_project/core/navigation/edspert_navigation.dart';
 import 'package:final_project/screen/splash_screen.dart';
+import 'package:final_project/utils/edspert_color.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,10 +15,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        scaffoldBackgroundColor: EdspertColor.primaryColor,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: EdspertColor.primaryColor,
+          elevation: 0,
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      initialRoute: SplashScreen.routeName,
+      routes: EdspertNavigation.routes,
+      navigatorKey: EdspertNavigation.navigatorkey,
     );
   }
 }
